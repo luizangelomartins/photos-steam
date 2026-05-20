@@ -1,2 +1,1 @@
-photos/hollow_knight_silksong.jpg
 photos/motorslice.jpg
