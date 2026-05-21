@@ -2,13 +2,11 @@ name: Daily GitHub Pages Deploy
 
 on:
   schedule:
-    - cron: "5 0 * * *"
+    - cron: "5 0 * * *" # todo dia às 00:05 UTC
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   deploy:
@@ -18,13 +16,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v3
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Upload site to GitHub Pages
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./  # root da branch main
+      - name: Create empty commit to trigger Pages
+        run: |
+          git commit --allow-empty -m "Daily GitHub Pages deploy"
 
-      - name: Deploy site
-        uses: actions/deploy-pages@v2
+      - name: Push changes
+        run: |
+          git push origin main
