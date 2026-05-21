@@ -1,2 +1,3 @@
 photos/hollow_knight_silksong.jpg
 photos/mio_memories_in_orbit.jpg
+photos/motorslice.jpg
