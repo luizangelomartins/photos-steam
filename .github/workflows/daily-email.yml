@@ -2,10 +2,8 @@ name: Daily Email
 
 on:
   schedule:
-    # 03:00 da manhã Brasil (UTC-3)
     - cron: '0 6 * * *'
 
-  # Execução manual
   workflow_dispatch:
 
 jobs:
@@ -13,43 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send daily email
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Send HTML email
         uses: dawidd6/action-send-mail@v3
         with:
-          # SMTP Gmail
           server_address: smtp.gmail.com
           server_port: 465
           secure: true
 
-          # Credenciais
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
 
-          # Email
-          subject: Relatório Diário Automático
+          subject: Relatório Diário HTML
 
-          # Envia para o próprio email
           to: ${{ secrets.EMAIL_USERNAME }}
 
           from: GitHub Actions
 
-          body: |
-            Olá!
-
-            Este email foi enviado automaticamente pelo GitHub Actions.
-
-            Informações:
-
-            Repositório:
-            ${{ github.repository }}
-
-            Workflow:
-            ${{ github.workflow }}
-
-            Execução:
-            #${{ github.run_number }}
-
-            Data:
-            ${{ github.event.repository.updated_at }}
-
-            Tudo funcionando corretamente 🚀
+          html_body: file://templates/daily-report.html
