@@ -13,25 +13,25 @@
       color: #111827;
     }
 
-    /* força centralização em clientes de email */
-    .email-wrapper {
+    .wrapper {
       width: 100%;
+      padding: 40px 12px;
+      box-sizing: border-box;
       background: #f3f4f6;
-      padding: 40px 0;
     }
 
     .container {
-      width: 100%;
       max-width: 620px;
+      margin: 0 auto;
       background: whitesmoke;
-      border-radius: 24px;
+      border-radius: 22px;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
 
     .header {
-      padding: 40px 40px 24px;
+      padding: 40px 32px 20px;
       text-align: center;
     }
 
@@ -43,15 +43,15 @@
       background: #dbeafe;
       padding: 8px 14px;
       border-radius: 999px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     h1 {
       margin: 0;
-      font-size: 42px;
+      font-size: 44px;
       line-height: 1;
+      font-weight: 900;
       letter-spacing: -2px;
-      font-weight: 800;
     }
 
     .highlight {
@@ -59,28 +59,27 @@
     }
 
     .subtitle {
-      margin-top: 18px;
+      margin-top: 14px;
       color: #6b7280;
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.5;
     }
 
+    /* 🔥 IMAGEM OCUPA QUASE TUDO (SEM NECESSIDADE DE CENTRALIZAÇÃO) */
     .image-container {
-      display: flex;
-      justify-content: center;
-      padding: 0 24px;
+      padding: 0 16px;
     }
 
     .featured-image {
-      width: 85%;
-      max-width: 520px;
+      width: 100%;
+      max-width: 100%;
       display: block;
       border-radius: 18px;
       border: 1px solid #e5e7eb;
     }
 
     .content {
-      padding: 32px;
+      padding: 28px 24px 32px;
       text-align: center;
     }
 
@@ -91,85 +90,77 @@
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
+
       color: #111827;
       background: transparent;
       border: 1px solid #d1d5db;
     }
 
     .footer {
-      margin-top: 32px;
+      margin-top: 28px;
       font-size: 12px;
       color: #9ca3af;
     }
 
     @media only screen and (max-width: 600px) {
-      h1 { font-size: 32px; }
-      .featured-image { width: 92%; }
+      h1 {
+        font-size: 34px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 🔥 TABLE LAYOUT PARA CENTRALIZAÇÃO REAL EM EMAIL -->
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" class="email-wrapper">
-    <tr>
-      <td align="center">
+  <div class="wrapper">
 
-        <table role="presentation" class="container" cellspacing="0" cellpadding="0" border="0">
+    <div class="container">
 
-          <tr>
-            <td class="header">
+      <div class="header">
 
-              <div class="repository">
-                luizangelomartins/photos-steam
-              </div>
+        <div class="repository">
+          luizangelomartins/photos-steam
+        </div>
 
-              <h1>
-                IMAGEM<br>
-                <span class="highlight">DO DIA</span>
-              </h1>
+        <!-- 🔥 TÍTULO DO EMAIL / SUBJECT -->
+        <h1>
+          IMAGEM<br>
+          <span class="highlight">DO DIA</span>
+        </h1>
 
-              <div class="subtitle">
-                Atualização automática gerada pelo workflow.
-              </div>
+        <div class="subtitle">
+          Atualização automática gerada pelo GitHub Actions.
+        </div>
 
-            </td>
-          </tr>
+      </div>
 
-          <tr>
-            <td class="image-container" align="center">
-              <img
-                class="featured-image"
-                src="https://luizangelomartins.github.io/photos-steam/banner.png"
-                alt="Imagem do dia"
-              />
-            </td>
-          </tr>
+      <div class="image-container">
+        <img
+          class="featured-image"
+          src="https://luizangelomartins.github.io/photos-steam/banner.png"
+          alt="Imagem do dia"
+        />
+      </div>
 
-          <tr>
-            <td class="content">
+      <div class="content">
 
-              <a
-                class="button"
-                href="https://github.com/luizangelomartins/photos-steam"
-                target="_blank"
-              >
-                Abrir repositório
-              </a>
+        <a
+          class="button"
+          href="https://github.com/luizangelomartins/photos-steam"
+          target="_blank"
+        >
+          Abrir repositório
+        </a>
 
-              <div class="footer">
-                GitHub Actions • Atualização automática
-              </div>
+        <div class="footer">
+          GitHub Actions • IMAGEM DO DIA
+        </div>
 
-            </td>
-          </tr>
+      </div>
 
-        </table>
+    </div>
 
-      </td>
-    </tr>
-  </table>
+  </div>
 
 </body>
 </html>
