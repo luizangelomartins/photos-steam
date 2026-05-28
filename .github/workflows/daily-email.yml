@@ -1,33 +1,192 @@
-name: Daily Email
 
-on:
-  schedule:
-    - cron: '0 6 * * *'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  workflow_dispatch:
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 16px;
+      background: #f3f4f6;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111827;
+    }
 
-jobs:
-  send-email:
-    runs-on: ubuntu-latest
+    .wrapper {
+      width: 100%;
+    }
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    .container {
+      max-width: 620px;
+      margin: auto;
+      background: whitesmoke;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
 
-      - name: Send HTML email
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
+    .header {
+      padding: 40px 40px 24px;
+      text-align: center;
+    }
 
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
+    .repository {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: bold;
+      color: #2563eb;
+      background: #dbeafe;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
 
-          subject: Relatório Diário HTML
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1;
+      letter-spacing: -2px;
+      font-weight: 800;
+    }
 
-          to: ${{ secrets.EMAIL_USERNAME }}
+    .highlight {
+      color: #2563eb;
+    }
 
-          from: GitHub Actions
+    .subtitle {
+      margin-top: 18px;
+      color: #6b7280;
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-          html_body: file://templates/daily-report.html
+    /* 🔽 IMAGEM MAIS CLEAN E MENOR */
+    .image-container {
+      display: flex;
+      justify-content: center;
+      padding: 0 24px;
+    }
+
+    .featured-image {
+      width: 85%;
+      max-width: 520px;
+      display: block;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 32px;
+      text-align: center;
+    }
+
+    /* 🔽 BOTÃO MAIS CLEAN */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      padding: 12px 18px;
+      border-radius: 12px;
+
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+
+      color: #111827;
+      background: transparent;
+      border: 1px solid #d1d5db;
+
+      transition: all 0.2s ease;
+    }
+
+    .button:hover {
+      color: #2563eb;
+      background: #eff6ff;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .featured-image {
+        width: 92%;
+      }
+
+      .header {
+        padding: 32px 24px 20px;
+      }
+
+      .content {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div class="container">
+
+      <div class="header">
+
+        <div class="repository">
+          luizangelomartins/photos-steam
+        </div>
+
+        <h1>
+          IMAGEM<br>
+          <span class="highlight">DO DIA</span>
+        </h1>
+
+        <div class="subtitle">
+          Atualização automática gerada pelo workflow.
+        </div>
+
+      </div>
+
+      <div class="image-container">
+        <img
+          class="featured-image"
+          src="https://luizangelomartins.github.io/photos-steam/banner.png"
+          alt="Imagem do dia"
+        />
+      </div>
+
+      <div class="content">
+
+        <a
+          class="button"
+          href="https://github.com/luizangelomartins/photos-steam"
+          target="_blank"
+        >
+          Abrir repositório
+        </a>
+
+        <div class="footer">
+          GitHub Actions • Atualização automática
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
