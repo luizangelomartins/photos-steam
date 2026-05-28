@@ -24,7 +24,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
 
-          subject: Relatório Diário HTML
+          subject: IMAGEM DO DIA
 
           to: ${{ secrets.EMAIL_USERNAME }}
 
