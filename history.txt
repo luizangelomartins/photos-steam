@@ -13,3 +13,4 @@ photos/hollow_knight_silksong.jpg
 photos/mio_memories_in_orbit.jpg
 photos/motorslice.jpg
 photos/hollow_knight_silksong_01.jpg
+photos/stellar_blade_01.jpg
