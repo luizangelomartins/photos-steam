@@ -14,3 +14,4 @@ photos/mio_memories_in_orbit.jpg
 photos/motorslice.jpg
 photos/hollow_knight_silksong_01.jpg
 photos/stellar_blade_01.jpg
+photos/clair_obscur_expedition_33.jpg
