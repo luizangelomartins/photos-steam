@@ -17,3 +17,4 @@ photos/stellar_blade_01.jpg
 photos/clair_obscur_expedition_33.jpg
 photos/final_fantasy_07_remake_intergrade_02.jpg
 photos/far_lone_sails.jpg
+photos/pragmata_02.jpg
