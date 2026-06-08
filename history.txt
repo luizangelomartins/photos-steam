@@ -20,3 +20,4 @@ photos/far_lone_sails.jpg
 photos/pragmata_02.jpg
 photos/final_fantasy_07_remake_intergrade_01.jpg
 photos/stellar_blade_02.jpg
+photos/stellar_blade_01.jpg
