@@ -22,3 +22,4 @@ photos/final_fantasy_07_remake_intergrade_01.jpg
 photos/stellar_blade_02.jpg
 photos/stellar_blade_01.jpg
 photos/motorslice.jpg
+photos/final_fantasy_07_remake_intergrade_02.jpg
