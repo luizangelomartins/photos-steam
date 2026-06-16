@@ -28,3 +28,4 @@ photos/pragmata_02.jpg
 photos/mio_memories_in_orbit.jpg
 photos/hollow_knight_silksong_01.jpg
 photos/hollow_knight_silksong.jpg
+photos/pragmata_01.jpg
