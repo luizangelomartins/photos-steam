@@ -29,3 +29,4 @@ photos/mio_memories_in_orbit.jpg
 photos/hollow_knight_silksong_01.jpg
 photos/hollow_knight_silksong.jpg
 photos/pragmata_01.jpg
+photos/final_fantasy_07_remake_intergrade_01.jpg
