@@ -37,3 +37,4 @@ photos/final_fantasy_07_remake_intergrade_02.jpg
 photos/yunyun_syndrome_rhythm_psychosis1.jpg
 photos/far_lone_sails.jpg
 photos/hollow_knight_silksong.jpg
+photos/mio_memories_in_orbit.jpg
