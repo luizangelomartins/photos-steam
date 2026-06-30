@@ -42,3 +42,4 @@ photos/final_fantasy_07_remake_intergrade_01.jpg
 photos/yunyun_syndrome_rhythm_psychosis3.jpg
 photos/yunyun_syndrome_rhythm_psychosis2.jpg
 photos/hollow_knight_silksong_01.jpg
+photos/pragmata_02.jpg
