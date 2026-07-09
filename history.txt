@@ -51,3 +51,4 @@ photos/yunyun_syndrome_rhythm_psychosis1.jpg
 photos/hollow_knight_silksong_01.jpg
 photos/pragmata_01.jpg
 photos/pragmata_02.jpg
+photos/stellar_blade_02.jpg
