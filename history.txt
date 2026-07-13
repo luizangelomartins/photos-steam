@@ -55,3 +55,4 @@ photos/stellar_blade_02.jpg
 photos/clair_obscur_expedition_33.jpg
 photos/hollow_knight_silksong.jpg
 photos/final_fantasy_07_remake_intergrade_01.jpg
+photos/final_fantasy_07_remake_intergrade_02.jpg
