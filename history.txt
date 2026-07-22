@@ -64,3 +64,4 @@ photos/far_lone_sails.jpg
 photos/motorslice.jpg
 photos/far_lone_sails.jpg
 photos/hollow_knight_silksong_01.jpg
+photos/stellar_blade_02.jpg
