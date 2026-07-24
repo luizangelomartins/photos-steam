@@ -66,3 +66,4 @@ photos/far_lone_sails.jpg
 photos/hollow_knight_silksong_01.jpg
 photos/stellar_blade_02.jpg
 photos/clair_obscur_expedition_33.jpg
+photos/final_fantasy_07_remake_intergrade_02.jpg
