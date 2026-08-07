@@ -80,3 +80,4 @@ photos/pragmata_02.jpg
 photos/final_fantasy_07_remake_intergrade_02.jpg
 photos/motorslice.jpg
 photos/hollow_knight_silksong_01.jpg
+photos/stellar_blade_01.jpg
