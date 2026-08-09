@@ -82,3 +82,4 @@ photos/motorslice.jpg
 photos/hollow_knight_silksong_01.jpg
 photos/stellar_blade_01.jpg
 photos/far_lone_sails.jpg
+photos/mio_memories_in_orbit.jpg
