@@ -14,6 +14,162 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate HTML email
+        shell: python
+        run: |
+          import base64
+          import mimetypes
+          import os
+          from pathlib import Path
+
+          # Arquivos
+          state_file = Path("state.txt")
+          template_file = Path("templates/daily-report.html")
+          output_file = Path("templates/daily-report-generated.html")
+
+          # ---------------------------------------------------------
+          # 1. Lê a primeira linha do state.txt
+          #
+          # Exemplo:
+          # photos/final_fantasy_07_remake_intergrade_01.jpg
+          # Wed Aug 19 00:42:43 UTC 2026
+          # ---------------------------------------------------------
+
+          lines = state_file.read_text(encoding="utf-8").splitlines()
+
+          if not lines:
+              raise Exception("state.txt está vazio.")
+
+          image_path = lines[0].strip()
+
+          if not image_path:
+              raise Exception("A primeira linha do state.txt está vazia.")
+
+          print(f"Imagem indicada pelo state.txt: {image_path}")
+
+          # ---------------------------------------------------------
+          # 2. Pega apenas o nome do arquivo
+          #
+          # photos/final_fantasy_07_remake_intergrade_01.jpg
+          #
+          # vira:
+          # final_fantasy_07_remake_intergrade_01.jpg
+          # ---------------------------------------------------------
+
+          image_filename = Path(image_path).name
+
+          print(f"Nome do arquivo: {image_filename}")
+
+          # ---------------------------------------------------------
+          # 3. Remove a extensão
+          #
+          # final_fantasy_07_remake_intergrade_01.jpg
+          #
+          # vira:
+          # final_fantasy_07_remake_intergrade_01
+          # ---------------------------------------------------------
+
+          image_stem = Path(image_filename).stem
+
+          print(f"Nome sem extensão: {image_stem}")
+
+          # ---------------------------------------------------------
+          # 4. Monta o caminho do TXT Base64
+          #
+          # photos_base64/
+          # final_fantasy_07_remake_intergrade_01.txt
+          # ---------------------------------------------------------
+
+          base64_file = (
+              Path("photos_base64") /
+              f"{image_stem}.txt"
+          )
+
+          print(f"Arquivo Base64: {base64_file}")
+
+          if not base64_file.exists():
+              raise Exception(
+                  f"Arquivo Base64 não encontrado: {base64_file}"
+              )
+
+          # ---------------------------------------------------------
+          # 5. Lê o Base64
+          # ---------------------------------------------------------
+
+          base64_content = base64_file.read_text(
+              encoding="utf-8"
+          ).strip()
+
+          # Remove espaços e quebras de linha
+          base64_content = "".join(base64_content.split())
+
+          if not base64_content:
+              raise Exception(
+                  f"O arquivo Base64 está vazio: {base64_file}"
+              )
+
+          # ---------------------------------------------------------
+          # 6. Descobre o MIME pela extensão da imagem
+          #
+          # jpg  -> image/jpeg
+          # png  -> image/png
+          # webp -> image/webp
+          # gif  -> image/gif
+          # ---------------------------------------------------------
+
+          mime_type, _ = mimetypes.guess_type(image_filename)
+
+          if not mime_type or not mime_type.startswith("image/"):
+              raise Exception(
+                  f"Não foi possível identificar o tipo da imagem: "
+                  f"{image_filename}"
+              )
+
+          print(f"MIME type: {mime_type}")
+
+          # ---------------------------------------------------------
+          # 7. Cria o Data URI
+          #
+          # data:image/jpeg;base64,AAAA....
+          # ---------------------------------------------------------
+
+          image_data = (
+              f"data:{mime_type};base64,{base64_content}"
+          )
+
+          # ---------------------------------------------------------
+          # 8. Lê o template
+          # ---------------------------------------------------------
+
+          html = template_file.read_text(
+              encoding="utf-8"
+          )
+
+          # ---------------------------------------------------------
+          # 9. Substitui {{IMAGE_DATA}}
+          # ---------------------------------------------------------
+
+          if "{{IMAGE_DATA}}" not in html:
+              raise Exception(
+                  "O template não possui o placeholder {{IMAGE_DATA}}."
+              )
+
+          html = html.replace(
+              "{{IMAGE_DATA}}",
+              image_data
+          )
+
+          # ---------------------------------------------------------
+          # 10. Salva o HTML final
+          # ---------------------------------------------------------
+
+          output_file.write_text(
+              html,
+              encoding="utf-8"
+          )
+
+          print(f"HTML gerado: {output_file}")
+
       - name: Send HTML email
         uses: dawidd6/action-send-mail@v3
         with:
@@ -30,4 +186,4 @@ jobs:
 
           from: GitHub Actions
 
-          html_body: file://templates/daily-report.html
+          html_body: file://templates/daily-report-generated.html
