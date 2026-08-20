@@ -25,6 +25,7 @@ jobs:
           import os
           import random
           import smtplib
+          from datetime import datetime
           from email.message import EmailMessage
           from email.utils import formataddr
           from pathlib import Path
@@ -165,7 +166,7 @@ jobs:
 
           message = EmailMessage()
 
-          message["Subject"] = "IMAGEM DO DIA"
+          message["Subject"] = f"imagem do dia - {image_stem} - {datetime.now().strftime('%d/%m/%Y')}"
 
           message["From"] = formataddr(
               ("GitHub Actions", username)
