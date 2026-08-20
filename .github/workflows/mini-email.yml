@@ -1,0 +1,224 @@
+name: Email a cada 15 minutos
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+
+  workflow_dispatch:
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Send random image email
+        env:
+          EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: |
+          python3 <<'PY'
+          import base64
+          import mimetypes
+          import os
+          import random
+          import smtplib
+          from email.message import EmailMessage
+          from email.utils import formataddr
+          from pathlib import Path
+
+          # ============================================================
+          # CONFIGURAÇÃO
+          # ============================================================
+
+          username = os.environ["EMAIL_USERNAME"]
+          password = os.environ["EMAIL_PASSWORD"]
+
+          base64_dir = Path("photos_base64")
+
+          # ============================================================
+          # LOCALIZA TODOS OS ARQUIVOS BASE64
+          # ============================================================
+
+          base64_files = list(base64_dir.glob("*.txt"))
+
+          if not base64_files:
+              raise RuntimeError(
+                  f"Nenhum arquivo .txt encontrado em {base64_dir}"
+              )
+
+          # ============================================================
+          # ESCOLHE UM ARQUIVO ALEATÓRIO
+          # ============================================================
+
+          base64_file = random.choice(base64_files)
+
+          print(f"Arquivos Base64 encontrados: {len(base64_files)}")
+          print(f"Arquivo escolhido: {base64_file}")
+
+          # ============================================================
+          # DESCOBRE O NOME DA IMAGEM
+          #
+          # Exemplo:
+          #
+          # photos_base64/final_fantasy_01.txt
+          #
+          # vira:
+          #
+          # final_fantasy_01.jpg
+          #
+          # O MIME será usado para determinar a extensão.
+          # ============================================================
+
+          image_stem = base64_file.stem
+
+          # ============================================================
+          # LÊ O BASE64
+          # ============================================================
+
+          encoded = base64_file.read_text(
+              encoding="utf-8"
+          )
+
+          # Remove espaços e quebras de linha
+          encoded = "".join(encoded.split())
+
+          # Caso o TXT já contenha:
+          # data:image/jpeg;base64,...
+          mime_type = None
+
+          if encoded.startswith("data:"):
+              header, encoded = encoded.split(",", 1)
+
+              mime_type = header.split(";", 1)[0].replace(
+                  "data:",
+                  ""
+              )
+
+          # ============================================================
+          # DECODIFICA O BASE64
+          # ============================================================
+
+          try:
+              image_data = base64.b64decode(
+                  encoded,
+                  validate=True
+              )
+          except Exception as error:
+              raise RuntimeError(
+                  f"Base64 inválido em {base64_file}: {error}"
+              )
+
+          # ============================================================
+          # DESCOBRE O MIME TYPE
+          # ============================================================
+
+          if not mime_type:
+              # Se o TXT não tiver data:image/...,
+              # tenta descobrir pelo nome do arquivo.
+              #
+              # Como o arquivo é .txt, não dá para descobrir
+              # o MIME diretamente pelo nome. Nesse caso,
+              # assumimos JPEG.
+              mime_type = "image/jpeg"
+
+          if not mime_type.startswith("image/"):
+              raise RuntimeError(
+                  f"Tipo MIME inválido: {mime_type}"
+              )
+
+          maintype, subtype = mime_type.split("/", 1)
+
+          extension = mimetypes.guess_extension(mime_type)
+
+          if not extension:
+              extension = ".jpg"
+
+          image_filename = f"{image_stem}{extension}"
+
+          print(f"Nome da imagem: {image_filename}")
+          print(f"MIME type: {mime_type}")
+          print(f"Tamanho: {len(image_data)} bytes")
+
+          # ============================================================
+          # LÊ O TEMPLATE HTML
+          # ============================================================
+
+          template_file = Path(
+              "templates/daily-report.html"
+          )
+
+          if not template_file.exists():
+              raise RuntimeError(
+                  f"Template não encontrado: {template_file}"
+              )
+
+          html = template_file.read_text(
+              encoding="utf-8"
+          )
+
+          # ============================================================
+          # CRIA O E-MAIL
+          # ============================================================
+
+          message = EmailMessage()
+
+          message["Subject"] = "IMAGEM DO DIA"
+
+          message["From"] = formataddr(
+              ("GitHub Actions", username)
+          )
+
+          message["To"] = username
+
+          message.set_content(
+              "Seu cliente de e-mail não suporta HTML."
+          )
+
+          message.add_alternative(
+              html,
+              subtype="html"
+          )
+
+          # ============================================================
+          # ADICIONA A IMAGEM INLINE
+          #
+          # O HTML deve usar:
+          #
+          # cid:imagem-do-dia
+          # ============================================================
+
+          html_part = message.get_payload()[1]
+
+          html_part.add_related(
+              image_data,
+              maintype=maintype,
+              subtype=subtype,
+              cid="<imagem-do-dia>",
+              filename=image_filename
+          )
+
+          # ============================================================
+          # ENVIA PELO GMAIL SMTP
+          # ============================================================
+
+          print("Conectando ao Gmail SMTP...")
+
+          with smtplib.SMTP_SSL(
+              "smtp.gmail.com",
+              465
+          ) as smtp:
+
+              smtp.login(
+                  username,
+                  password
+              )
+
+              smtp.send_message(
+                  message
+              )
+
+          print("E-mail enviado com sucesso!")
+          PY
