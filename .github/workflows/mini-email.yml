@@ -2,7 +2,7 @@ name: Email a cada 15 minutos
 
 on:
   schedule:
-    - cron: '3,18,33,48 * * * *'
+    - cron: '0 6 * * *'
 
   workflow_dispatch:
 
