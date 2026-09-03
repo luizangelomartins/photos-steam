@@ -107,3 +107,4 @@ photos/far_lone_sails.jpg
 photos/clair_obscur_expedition_33.jpg
 photos/mio_memories_in_orbit.jpg
 photos/hollow_knight_silksong.jpg
+photos/horizon_zero_dawn_09.jpg
