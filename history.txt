@@ -111,3 +111,4 @@ photos/horizon_zero_dawn_09.jpg
 photos/mio_memories_in_orbit.jpg
 photos/final_fantasy_07_remake_intergrade_06.jpg
 photos/final_fantasy_07_remake_intergrade_03.jpg
+photos/doki_doki_literature_club_01.jpg
