@@ -114,3 +114,4 @@ photos/final_fantasy_07_remake_intergrade_03.jpg
 photos/doki_doki_literature_club_01.jpg
 photos/blazblue_centralfiction_02.jpg
 photos/cyberpunk_2077_02.jpg
+photos/blazblue_centralfiction_01.jpg
