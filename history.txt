@@ -121,3 +121,4 @@ photos/yunyun_syndrome_rhythm_psychosis1.jpg
 photos/final_fantasy_07_remake_intergrade_04.jpg
 photos/final_fantasy_07_remake_intergrade_01.jpg
 photos/pragmata_03.jpg
+photos/ai_limit_01.jpg
