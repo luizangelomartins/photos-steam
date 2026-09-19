@@ -123,3 +123,4 @@ photos/final_fantasy_07_remake_intergrade_01.jpg
 photos/pragmata_03.jpg
 photos/ai_limit_01.jpg
 photos/hollow_knight_silksong_01.jpg
+photos/ascend_to_zero_01.jpg
