@@ -129,3 +129,4 @@ photos/little_misfortune_01.jpg
 photos/hollow_knight_silksong.jpg
 photos/yunyun_syndrome_rhythm_psychosis2.jpg
 photos/horizon_zero_dawn_08.jpg
+photos/final_fantasy_07_remake_intergrade_02.jpg
