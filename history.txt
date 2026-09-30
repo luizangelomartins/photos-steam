@@ -134,3 +134,4 @@ photos/horizon_zero_dawn_03.jpg
 photos/stellar_blade_01.jpg
 photos/horizon_zero_dawn_06.jpg
 photos/horizon_zero_dawn_02.jpg
+photos/pragmata_02.jpg
