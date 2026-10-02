@@ -136,3 +136,4 @@ photos/horizon_zero_dawn_06.jpg
 photos/horizon_zero_dawn_02.jpg
 photos/pragmata_02.jpg
 photos/pragmata_01.jpg
+photos/yunyun_syndrome_rhythm_psychosis4.jpg
