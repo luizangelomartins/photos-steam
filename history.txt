@@ -138,3 +138,4 @@ photos/pragmata_02.jpg
 photos/pragmata_01.jpg
 photos/yunyun_syndrome_rhythm_psychosis4.jpg
 photos/doki_doki_literature_club_02.jpg
+photos/motorslice.jpg
