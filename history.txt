@@ -141,3 +141,4 @@ photos/doki_doki_literature_club_02.jpg
 photos/motorslice.jpg
 photos/horizon_zero_dawn_10.jpg
 photos/mio_memories_in_orbit_03.jpg
+photos/cyberpunk_2077_01.jpg
