@@ -146,3 +146,4 @@ photos/hollow_knight_silksong_02.jpg
 photos/yunyun_syndrome_rhythm_psychosis3.jpg
 photos/doki_doki_literature_club_04.jpg
 photos/horizon_zero_dawn_05.jpg
+photos/mio_memories_in_orbit_02.jpg
