@@ -152,3 +152,4 @@ photos/clair_obscur_expedition_33.jpg
 photos/cyberpunk_2077_03.jpg
 photos/final_fantasy_07_remake_intergrade_05.jpg
 photos/stellar_blade_02.jpg
+photos/horizon_zero_dawn_04.jpg
