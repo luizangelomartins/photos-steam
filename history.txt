@@ -155,3 +155,4 @@ photos/stellar_blade_02.jpg
 photos/horizon_zero_dawn_04.jpg
 photos/stellar_blade_01.jpg
 photos/ascend_to_zero_01.jpg
+photos/yunyun_syndrome_rhythm_psychosis3.jpg
