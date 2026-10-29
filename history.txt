@@ -163,3 +163,4 @@ photos/hollow_knight_silksong_02.jpg
 photos/horizon_zero_dawn_02.jpg
 photos/mio_memories_in_orbit_02.jpg
 photos/horizon_zero_dawn_07.jpg
+photos/cyberpunk_2077_01.jpg
