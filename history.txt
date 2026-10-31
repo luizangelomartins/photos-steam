@@ -165,3 +165,4 @@ photos/mio_memories_in_orbit_02.jpg
 photos/horizon_zero_dawn_07.jpg
 photos/cyberpunk_2077_01.jpg
 photos/horizon_zero_dawn_09.jpg
+photos/final_fantasy_07_remake_intergrade_06.jpg
