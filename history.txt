@@ -171,3 +171,4 @@ photos/final_fantasy_07_remake_intergrade_01.jpg
 photos/stellar_blade_02.jpg
 photos/mio_memories_in_orbit.jpg
 photos/clair_obscur_expedition_33.jpg
+photos/motorslice.jpg
