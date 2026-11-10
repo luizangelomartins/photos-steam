@@ -175,3 +175,4 @@ photos/motorslice.jpg
 photos/blazblue_centralfiction_01.jpg
 photos/doki_doki_literature_club_03.jpg
 photos/horizon_zero_dawn_10.jpg
+photos/doki_doki_literature_club_01.jpg
