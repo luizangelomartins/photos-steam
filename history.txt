@@ -178,3 +178,4 @@ photos/horizon_zero_dawn_10.jpg
 photos/doki_doki_literature_club_01.jpg
 photos/horizon_zero_dawn_01.jpg
 photos/cyberpunk_2077_03.jpg
+photos/yunyun_syndrome_rhythm_psychosis4.jpg
