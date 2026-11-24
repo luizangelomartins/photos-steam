@@ -189,3 +189,4 @@ photos/horizon_zero_dawn_04.jpg
 photos/hollow_knight_silksong.jpg
 photos/hollow_knight_silksong_01.jpg
 photos/yunyun_syndrome_rhythm_psychosis1.jpg
+photos/ai_limit_01.jpg
