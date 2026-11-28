@@ -193,3 +193,4 @@ photos/ai_limit_01.jpg
 photos/final_fantasy_07_remake_intergrade_02.jpg
 photos/yunyun_syndrome_rhythm_psychosis2.jpg
 photos/doki_doki_literature_club_04.jpg
+photos/pragmata_03.jpg
